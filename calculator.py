@@ -8,25 +8,29 @@ One function per operation, in order.
 import math
 
 # First example
-def add(a, b): a+b
+def add(a, b): 
+    return a + b
 
-def subtract(a, b): a - b
+def sub(a, b): 
+    return a - b
 
-def multiply(a, b): a * b
+def mul(a, b): 
+    return a * b
 
-def divide(a, b):
+def div(a, b):
     if a == 0:
-        raise ZeroDivisionError
+        raise ZeroDivisionError("Cannot divide by zero")
     return b/a
 
 
-def logarithm(a, b):
+def log(a, b):
+    # restrictions
+    if a <= 0 or a == 1:
+        raise ValueError("Logarithm base must be positive and not equal to 1")
+    
     if b <= 0:
-        raise ValueError
+        raise ValueError("Logarithm argument must be positive")
+    return math.log(b, a)
 
-    return math.log(b,base=a)# use math library/raise ValueError
-
-def exponent(a, b): a ** b
-
-
-
+def exp(a, b): 
+    return a ** b
